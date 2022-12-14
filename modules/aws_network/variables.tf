@@ -12,7 +12,7 @@ variable "prefix" {
   description = "Name prefix"
 }
 
-/*# Provision public subnets in custom VPC
+# Provision public subnets in custom VPC
 variable "public_cidr_blocks" {
   default     = ["10.2.0.0/24", "10.2.1.0/24", "10.2.2.0/24"]
   type        = list(string)

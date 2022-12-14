@@ -89,7 +89,7 @@ resource "aws_eip" "nat_gateway" {
 }
 
 #Natgateway for Private Subnet
-resource "aws_nat_gateway" "nat-gateway" {
+resource "aws_nat_gateway" "natgateway" {
   allocation_id = aws_eip.nat_gateway.id
   subnet_id     = aws_subnet.public_subnet[1].id
   tags = {
@@ -102,15 +102,21 @@ resource "aws_nat_gateway" "nat-gateway" {
 
 #Route_Table_for Private_Subnet
 # Private routes
-resource "aws_route_table" "prod-private-crt" {
+resource "aws_route_table" "private_subnet_route" {
   vpc_id = aws_vpc.main.id
 
   route {
     cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat-gateway.id
+    nat_gateway_id = aws_nat_gateway.natgateway.id
   }
 
   tags = {
     Name = "${local.name_prefix}--private-route_table"
   }
+}
+
+resource "aws_route_table_association" "private-route-table-association" {
+  count          = length(aws_subnet.private_subnet[*].id)
+  subnet_id      = aws_subnet.private_subnet[count.index].id
+  route_table_id = aws_route_table.private_subnet_route.id
 }
