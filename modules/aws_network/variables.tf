@@ -32,7 +32,7 @@ variable "vpc_cidr" {
 }
 
 # Variable to signal the current environment 
-variable "env" {
+variable "gname" {
   default     = "ACSFINAL"
   type        = string
   description = "Deployment Environment"

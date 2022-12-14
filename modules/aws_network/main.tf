@@ -12,9 +12,9 @@ data "aws_availability_zones" "available" {
 locals {
   default_tags = merge(
     var.default_tags,
-    { "Env" = var.env }
+    { "gname" = var.gname }
   )
-  name_prefix = "${var.prefix}-${var.env}"
+  name_prefix = "${var.prefix}-${var.gname}"
 }
 
 # Create a new VPC 
@@ -91,7 +91,7 @@ resource "aws_eip" "nat_gateway" {
 #Natgateway for Private Subnet
 resource "aws_nat_gateway" "natgateway" {
   allocation_id = aws_eip.nat_gateway.id
-  subnet_id     = aws_subnet.public_subnet[1].id
+  subnet_id     = "${aws_subnet.public_subnet[1].id}"
   tags = {
     Name = "${local.name_prefix}-NAT-GATEWAY"
   }
