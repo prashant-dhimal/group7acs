@@ -48,8 +48,8 @@ variable "target_group_g7" {
   description = "Target Group ARN for loadbalancer"
 }
 #Specifying Group Name
-variable "gname" {
-  default     = "ACSFINAL"
+variable "env" {
+  default     = "dev"
   type        = string
   description = "Deployment Environment"
 }
