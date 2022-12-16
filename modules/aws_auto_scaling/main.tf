@@ -31,9 +31,11 @@ resource "aws_autoscaling_group" "web" {
   lifecycle {
     create_before_destroy = true
   }
-
-  tag {
-    key                 = "Name"
-    value               = "web"
+  
+   tags = merge(
+    var.default_tags, {
+      Name = "${var.prefix}-asg"
+    }
     propagate_at_launch = true
-  }}
+  )
+  }
