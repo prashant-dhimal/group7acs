@@ -10,8 +10,8 @@ variable "default_tags" {
 
 # Name prefix
 variable "prefix" {
-  type        = string
   default     = "group7"
+  type        = string
   description = "Name prefix"
 }
 
