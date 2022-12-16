@@ -1,3 +1,4 @@
+#Creating auto-scaling group
 resource "aws_autoscaling_group" "web" {
   name = "${aws_launch_configuration.web.name}-asg" 
   min_size             = 1
@@ -8,7 +9,7 @@ resource "aws_autoscaling_group" "web" {
   load_balancers = [
     "${aws_elb.web_elb.id}"
   ]
-  
+
   launch_configuration = "${aws_launch_configuration.web.name}"
 
   enabled_metrics = [
