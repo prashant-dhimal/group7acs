@@ -53,3 +53,9 @@ variable "env" {
   type        = string
   description = "Deployment Environment"
 }
+
+# Get the VPC ID for the Traget Group
+variable "vpc_id" {
+  type        = string
+  description = "VPC ID"
+}
