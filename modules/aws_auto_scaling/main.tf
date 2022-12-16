@@ -36,6 +36,6 @@ resource "aws_autoscaling_group" "web" {
     var.default_tags, {
       Name = "${var.prefix}-asg"
     }
-    propagate_at_launch = true
+    
   )
   }
