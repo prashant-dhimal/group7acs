@@ -11,3 +11,12 @@ output "default_tags" {
 output "prefix" {
   value     = "Group7"
 }
+
+#output of public ip
+data "http" "myip" {
+  url = "http://ipv4.icanhazip.com"
+}
+
+output "public_ip" {
+  value = ["${chomp(data.http.myip.body)}/32"]
+}
