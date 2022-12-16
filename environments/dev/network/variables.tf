@@ -10,21 +10,25 @@ variable "default_tags" {
 
 # Name prefix
 variable "prefix" {
-  type        = string
   default     = "group7"
+  type        = string
   description = "Name prefix"
 }
 
 # Provision public subnets in custom VPC
 variable "public_subnet_cidrs" {
-  default     = ["10.100.0.0/24", "10.200.0.0/24", "10.250.0.0/24"]
+  default     = ["10.100.0.0/24", "10.100.1.0/24", "10.100.2.0/24"]
   type        = list(string)
   description = "Public Subnet CIDRs"
 }
+variable "private_subnet_cidrs" {
+  default     = ["10.100.3.0/24", "10.100.4.0/24", "10.100.5.0/24"]
+  description = "Private Subnet CIDRs"
 
+}
 # VPC CIDR range
 variable "vpc_cidr" {
-  default     = "10.2.0.0/16"
+  default     = "10.100.0.0/16"
   type        = string
   description = "VPC to host static web site"
 }
