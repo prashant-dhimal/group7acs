@@ -1,15 +1,34 @@
-resource "aws_autoscaling_group" "web" {
+# Step 1 - Define the provider
+provider "aws" {
+  region = "us-east-1"
+}
+
+# Data source for availability zones in us-east-1
+data "aws_availability_zones" "available" {
+  state = "available"
+}
+# Local variables
+locals {
+  default_tags = merge(
+    var.default_tags,
+    { "Env" = var.env }
+  )
+  name_prefix = "${var.prefix}-${var.env}"
+}
+
+
+# Creating auto_scaling _group
+resource "aws_autoscaling_group" "webserver_group_7" {
   name = "${aws_launch_configuration.web.name}-asg" 
-  min_size             = 1
-  desired_capacity     = 1
-  max_size             = 2
+  min_size             = var.minisize
+  desired_capacity     = var.desiredcapacity
+  max_size             = var.maxsize
   
   health_check_type    = "ELB"
-  load_balancers = [
-    "${aws_elb.web_elb.id}"
-  ]
   
-  launch_configuration = "${aws_launch_configuration.web.name}"
+  terget_group = [var.target_group_arn]
+  
+  launch_configuration = var.launch-configuration
 
   enabled_metrics = [
     "GroupMinSize",
@@ -21,10 +40,7 @@ resource "aws_autoscaling_group" "web" {
 
   metrics_granularity = "1Minute"
 
-  vpc_zone_identifier  = [
-    "${aws_subnet.demosubnet.id}",
-    "${aws_subnet.demosubnet1.id}"
-  ]
+  vpc_zone_identifier  = var.private_subnet
 
   # Required to redeploy without an outage.
   lifecycle {
@@ -32,7 +48,13 @@ resource "aws_autoscaling_group" "web" {
   }
 
   tag {
-    key                 = "Name"
-    value               = "web"
-    propagate_at_launch = true
-  }}
+      key  = "Name" 
+      value ="${local.name_prefix}-Amazon-VM"
+      propagate_at_launch = true
+    }
+}
+
+#
+  
+  
+  

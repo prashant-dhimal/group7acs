@@ -3,7 +3,7 @@ output "default_tags" {
   value = {
     "Owner" = "Prashant, Prince , Subham"
     "App"   = "ACS730 Final Project"
-    "StudentId"="171162217,xxxxxx,xxxxxx"
+    "StudentId"="171162217,xxxx,xxxxxx"
   }
 }
 
