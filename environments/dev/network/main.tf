@@ -9,3 +9,7 @@ module "vpc-dev" {
   public_cidr_blocks  = var.public_subnet_cidrs
 
 }
+
+module "global_variable" {
+  source = "../../../modules/globalvars"
+}
