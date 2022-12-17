@@ -31,10 +31,10 @@ variable "key_name" {
 }
 
 # IAM ROles
-variable "iam_role" {
+/*variable "iam_role" {
   type = string
   description = "Name of an iam_instance_profile"
-}
+}*/
 
 # the Security Group IDs for the LaunchConfig
 variable "security_group_id" {
@@ -49,4 +49,9 @@ variable "env" {
   default     = "dev"
   type        = string
   description = "Deployment Environment"
+}
+
+variable "policy_iam"{
+  type = string
+  description = "Deployment of IAM ROle"
 }

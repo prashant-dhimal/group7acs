@@ -18,7 +18,7 @@ data "http" "myip" {
 }
 
 output "public_ip_cloud9" {
-  value = ["${chomp(data.http.myip.body)}/32"]
+  value = "${chomp(data.http.myip.body)}"
 }
 
 data "http" "mypriip" {
@@ -26,10 +26,10 @@ data "http" "mypriip" {
   }
   
 output "private_cloud9_ip" {
-   value =  ["${chomp(data.http.mypriip.body)}/32"]
+   value =  "${chomp(data.http.mypriip.body)}"
    }
    
 output "my_system_ip" {
-  value = "174.91.172.73/32"
+  value = "174.91.172.73"
 }   
    

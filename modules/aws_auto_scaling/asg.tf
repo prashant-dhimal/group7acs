@@ -1,21 +1,4 @@
-# Step 1 - Define the provider
-provider "aws" {
-  region = "us-east-1"
-}
-
-# Data source for availability zones in us-east-1
-data "aws_availability_zones" "available" {
-  state = "available"
-}
-
-# Local variables
-locals {
-  default_tags = merge(
-    var.default_tags,
-    { "Env" = var.env }
-  )
-  name_prefix = "${var.prefix}-${var.env}"
-}
+#Creating Resource for AUtoScaling
 resource "aws_autoscaling_policy" "web_scaling_policy_up" {
   name = "${local.name_prefix}-ASG-G7-Web-UP"
   scaling_adjustment = 1
@@ -36,7 +19,7 @@ dimensions = {
     AutoScalingGroupName = "${aws_autoscaling_group.webserver_group_7}"
   }
 alarm_description = "This metric monitor EC2 instance CPU utilization"
-  alarm_actions =  "${aws_autoscaling_policy.web_cpu_alarm_up}" 
+  alarm_actions =  ["${aws_autoscaling_policy.web_scaling_policy_up.arn}"] 
 }
 resource "aws_autoscaling_policy" "web_scaling_policy_down" {
   name = "${local.name_prefix}-ASG-Web-Down"
@@ -55,8 +38,8 @@ resource "aws_cloudwatch_metric_alarm" "web_cpu_alarm_down" {
   statistic = "Average"
   threshold = var.threshold_scale_down
 dimensions = {
-    AutoScalingGroupName = "${aws_autoscaling.webserver_7}"
+    AutoScalingGroupName = "${aws_autoscaling_group.webserver_group_7}"
   }
 alarm_description = "This metric monitor EC2 instance CPU utilization"
-  alarm_actions = [ "${aws_autoscaling_policy.web_cpu_alarm_down}" ]
+  alarm_actions = ["${aws_autoscaling_policy.web_scaling_policy_down.arn}"] 
 }

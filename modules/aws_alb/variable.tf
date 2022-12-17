@@ -43,7 +43,7 @@ variable "env" {
 } */
 
 # Terget Group 
-variable "target_group_g7" {
+variable "target_group" {
   type        = string
   description = "Target Group ARN for loadbalancer"
 }

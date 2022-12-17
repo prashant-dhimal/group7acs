@@ -12,9 +12,9 @@ data "aws_availability_zones" "available" {
 locals {
   default_tags = merge(
     var.default_tags,
-    { "Env" = var.gname }
+    { "Env" = var.env }
   )
-  name_prefix = "${var.prefix}-${var.gname}"
+  name_prefix = "${var.prefix}-${var.env}"
 }
 #Loadbalancer
 
@@ -40,7 +40,7 @@ resource "aws_lb_listener" "lblistner_g7" {
   default_action {
     type = "forward"
 
-    target_group_arn = var.target_group_g7
+    target_group_arn = var.target_group
 
   }
   tags = merge(

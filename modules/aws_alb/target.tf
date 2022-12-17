@@ -1,12 +1,3 @@
-# Local variables
-locals {
-  default_tags = merge(
-    var.default_tags,
-    { "Env" = var.env }
-  )
-  name_prefix = "${var.prefix}-${var.env}"
-}
-
 ### Module to Create a AWS Load Balancer and a target group
 
 # Target Group 

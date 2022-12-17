@@ -8,6 +8,6 @@ output "LB_id" {
   value = aws_lb.loadbalancer_g7.id
 }
 # output for Target group
-output "Target_Group_ARN" {
+output "target_full_name" {
   value = aws_lb_target_group.target_group_7.arn
 }

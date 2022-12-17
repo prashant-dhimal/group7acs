@@ -1,6 +1,6 @@
 #Creating IAM ROLE
 resource "aws_iam_role" "instance_role" {
-  name               = "IAM-Role"
+  name               = "G7-IAM-Role"
   assume_role_policy = <<EOF
   {
   "Version": "2012-10-17",
@@ -53,7 +53,7 @@ resource "aws_iam_instance_profile" "bucketaccessprofile" {
   role = aws_iam_role_policy.instance_policy.id
 }
 resource "aws_iam_role_policy" "instance_policy" {
-  name = "test_policy"
+  name = "G7_policy"
   role = "${aws_iam_role.instance_role.id}"
 
   policy = <<EOF
