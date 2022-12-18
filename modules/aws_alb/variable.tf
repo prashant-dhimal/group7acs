@@ -1,9 +1,11 @@
 # Default tags
 variable "default_tags" {
-  default = {
-    "Owner" = "PPS",
-    "App"   = "WebServer"
-  }
+  default = {}
+    #"Owner" = "Prashant|Prince|Subham",
+    #"App"   = "WebServer"
+    #"StudentIds" = "171162217|1897384|23495"
+  
+
   type        = map(any)
   description = "Default tags to be appliad to all AWS resources"
 }
@@ -28,7 +30,7 @@ variable "private_subnets" {
   description = "Private Subnet CIDRs"
 
 }
-#Security_Group for lad balancer
+#Security_Group for load balancer
 variable "security_group_lb" {
   default     = []
   type        = list(string)
@@ -43,7 +45,7 @@ variable "env" {
 } */
 
 # Terget Group 
-variable "target_group_g7" {
+variable "target_group" {
   type        = string
   description = "Target Group ARN for loadbalancer"
 }

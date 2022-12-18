@@ -19,7 +19,7 @@ locals {
 
 # Creating auto_scaling _group
 resource "aws_autoscaling_group" "webserver_group_7" {
-  name = "${aws_launch_configuration.web.name}-asg" 
+  name_prefix = "${local.name_prefix}-asgG7" 
   min_size             = var.minisize
   desired_capacity     = var.desiredcapacity
   max_size             = var.maxsize
@@ -29,7 +29,9 @@ resource "aws_autoscaling_group" "webserver_group_7" {
     "${aws_elb.web_elb.id}"
   ]
   
-  launch_configuration = "${aws_launch_configuration.web.name}"
+  target_group_arns = [var.target_group_arn]
+  
+  launch_configuration = var.launch-configuration
 
   enabled_metrics = [
     "GroupMinSize",
@@ -49,8 +51,8 @@ resource "aws_autoscaling_group" "webserver_group_7" {
   }
 
   tag {
-    key                 = "Name"
-    value               = "web"
-    propagate_at_launch = true
-  }
-  }
+      key  = "Name" 
+      value ="${local.name_prefix}-Amazon-VM"
+      propagate_at_launch = true
+    }
+  }  
