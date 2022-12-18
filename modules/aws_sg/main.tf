@@ -25,7 +25,7 @@ resource "aws_security_group" "security_group_lb_g7" {
   }
  ## Security_Group for Ec2 Instance for SSH and HTTP 
  resource "aws_security_group" "security_group_ec2_g7" {
- count       = var.type == "EC2" ? 1 : 0
+ count        = var.type == "EC2" ? 1 : 0
   vpc_id      = var.vpc_id
   description = "Security Group for Ec2 Instance"
    # Ingress rule for allowing connection 
@@ -59,7 +59,7 @@ resource "aws_security_group" "security_group_lb_g7" {
   
    ## Security_Group for Bastion HostI for SSH and HTTP 
  resource "aws_security_group" "security_group_bastion_g7" {
- count       = var.type == "Bastion" ? 1 : 0
+ count        = var.type == "Bastion" ? 1 : 0
   vpc_id      = var.vpc_id
   description = "Security Group for Bastion Host"
    # Ingress rule for allowing connection 

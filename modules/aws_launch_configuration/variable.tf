@@ -30,12 +30,6 @@ variable "key_name" {
   description = "Key Name for the launch_configuration"
 }
 
-# IAM ROles
-/*variable "iam_role" {
-  type = string
-  description = "Name of an iam_instance_profile"
-}*/
-
 # the Security Group IDs for the LaunchConfig
 variable "security_group_id" {
   default     = []

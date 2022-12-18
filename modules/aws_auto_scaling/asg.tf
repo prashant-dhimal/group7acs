@@ -4,7 +4,7 @@ resource "aws_autoscaling_policy" "web_scaling_policy_up" {
   scaling_adjustment = 1
   adjustment_type = "ChangeInCapacity"
   cooldown = 30
-  autoscaling_group_name = "${aws_autoscaling_group.webserver_group_7}"
+  autoscaling_group_name = aws_autoscaling_group.webserver_group_7.name
 }
 resource "aws_cloudwatch_metric_alarm" "web_cpu_alarm_up" {
   alarm_name = "${local.name_prefix}-ASG-Web-Cpu-Alarm-Up"
@@ -16,7 +16,7 @@ resource "aws_cloudwatch_metric_alarm" "web_cpu_alarm_up" {
   statistic = "Average"
   threshold = var.threshold_scale_up
 dimensions = {
-    AutoScalingGroupName = "${aws_autoscaling_group.webserver_group_7}"
+    AutoScalingGroupName = "${aws_autoscaling_group.webserver_group_7.name}"
   }
 alarm_description = "This metric monitor EC2 instance CPU utilization"
   alarm_actions =  ["${aws_autoscaling_policy.web_scaling_policy_up.arn}"] 
@@ -26,7 +26,7 @@ resource "aws_autoscaling_policy" "web_scaling_policy_down" {
   scaling_adjustment = -1
   adjustment_type = "ChangeInCapacity"
   cooldown = 30
-  autoscaling_group_name = "${aws_autoscaling_group.webserver_group_7}"
+  autoscaling_group_name = aws_autoscaling_group.webserver_group_7.name
 }
 resource "aws_cloudwatch_metric_alarm" "web_cpu_alarm_down" {
   alarm_name = "${local.name_prefix}-ASG-Web-Alarm-Down"
@@ -38,7 +38,7 @@ resource "aws_cloudwatch_metric_alarm" "web_cpu_alarm_down" {
   statistic = "Average"
   threshold = var.threshold_scale_down
 dimensions = {
-    AutoScalingGroupName = "${aws_autoscaling_group.webserver_group_7}"
+    AutoScalingGroupName = "${aws_autoscaling_group.webserver_group_7.name}"
   }
 alarm_description = "This metric monitor EC2 instance CPU utilization"
   alarm_actions = ["${aws_autoscaling_policy.web_scaling_policy_down.arn}"] 
