@@ -12,9 +12,9 @@ data "aws_availability_zones" "available" {
 locals {
   default_tags = merge(
     var.default_tags,
-    { "gname" = var.gname }
+    { "Env" = var.env }
   )
-  name_prefix = "${var.prefix}-${var.gname}"
+  name_prefix = "${var.prefix}-${var.env}"
 }
 
 # Create a new VPC 
