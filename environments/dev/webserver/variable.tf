@@ -15,7 +15,7 @@ variable "env" {
 
 # Instance Profile Name for the LaunchConfig 
 variable "iam_instance_profile_name" {
-  default     = "EC2sBucketAccess"
+  default     = "EC2BUCKETACCESS"
   type        = string
   description = "Instance Profile Name for the LaunchConfig. It  needs to be created and updated in case this is not present"
 }
