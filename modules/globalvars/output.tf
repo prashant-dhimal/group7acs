@@ -1,7 +1,7 @@
 # Default tags for output
 output "default_tags" {
   value = {
-    "Owner" = "Prashant Prince Subham"
+    "Owner" = "Prashant Dhimal Prince Thakuri Subham Chetry"
     "App"   = "ACS730 Final Project"
     "StudentIds"= "171162217 105573224 130942220"
   }
