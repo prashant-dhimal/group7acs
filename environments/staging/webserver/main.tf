@@ -3,8 +3,8 @@
 data "terraform_remote_state" "network" { // This is to use Outputs from Remote State
   backend = "s3"
   config = {
-    bucket = "group7acs-dev"                           // Bucket from where to GET Terraform State
-    key    = "group7acs-dev/network/terraform.tfstate" // Object name in the bucket to GET Terraform State
+    bucket = "group7acs-staging"                           // Bucket from where to GET Terraform State
+    key    = "network/terraform.tfstate" // Object name in the bucket to GET Terraform State
     region = "us-east-1"                               // Region where bucket created
   }
 }
