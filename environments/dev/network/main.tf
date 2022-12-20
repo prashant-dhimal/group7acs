@@ -19,5 +19,5 @@ module "global_variable" {
 locals {
   default_tags = merge(module.global_variable.default_tags, { "env" = var.env })
   prefix       = module.global_variable.prefix
-  name_prefix  = "${local.prefix}-${var.env}""
+  name_prefix  = "${local.prefix}-${var.env}"
 }
