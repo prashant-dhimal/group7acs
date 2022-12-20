@@ -91,8 +91,8 @@ module "security_group_EC2" {
   env          = var.env
   type         = "EC2"
   vpc_id       = local.vpc_id
-  ingress_cidr = ["${local.my_pub_ip}/32", var.vpc_cidr,"0.0.0.0/0"]
-  egress_cidr  = [var.vpc_cidr, "${local.my_pub_ip}/32","0.0.0.0/0"]
+  ingress_cidr = ["${local.my_pub_ip}/32", var.vpc_cidr, "0.0.0.0/0"]
+  egress_cidr  = [var.vpc_cidr, "${local.my_pub_ip}/32", "0.0.0.0/0"]
   prefix       = local.prefix
   default_tags = local.default_tags
 }
@@ -104,7 +104,7 @@ module "security_group_Bastion" {
   env          = var.env
   type         = "Bastion"
   vpc_id       = local.vpc_id
-  ingress_cidr = [var.vpc_cidr, "${local.cloud_pub_ip}/32", "${local.cloud_pri_ip}/32","0.0.0.0/0"]
+  ingress_cidr = [var.vpc_cidr, "${local.cloud_pub_ip}/32", "${local.cloud_pri_ip}/32", "0.0.0.0/0"]
   egress_cidr  = [var.vpc_cidr, "${local.cloud_pub_ip}/32", "${local.cloud_pri_ip}/32"]
   prefix       = local.prefix
   default_tags = local.default_tags
