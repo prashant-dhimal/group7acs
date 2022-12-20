@@ -1,4 +1,4 @@
-module "vpc-dev" {
+module "vpc-prod" {
   source              = "../../../modules/aws_network"
   env                 = var.env
   vpc_cidr            = var.vpc_cidr
