@@ -26,7 +26,7 @@ resource "aws_autoscaling_group" "webserver_group_7" {
   
   health_check_type    = "ELB"
   
-  target_group_arns = [var.target_group_arn]
+  target_group_arns = [var.target_group_arn
   
   launch_configuration = var.launch-configuration
 

@@ -14,7 +14,7 @@ locals {
     var.default_tags,
     { "Env" = var.env }
   )
-  name_prefix = "${var.prefix}-${var.env}"
+  name_prefix = "${var.prefix}-${var.}"
 }
 
 # Create a new VPC 
