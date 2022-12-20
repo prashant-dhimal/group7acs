@@ -25,9 +25,7 @@ resource "aws_autoscaling_group" "webserver_group_7" {
   max_size             = var.maxsize
   
   health_check_type    = "ELB"
-  load_balancers = [
-    "${aws_elb.web_elb.id}"
-  ]
+  #load_balancers = ["${aws_elb.web_elb.id}"]
   
   target_group_arns = [var.target_group_arn]
   
