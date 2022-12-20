@@ -137,11 +137,6 @@ module "application_loadbalancing" {
 
 
 
-# Fetching IAM Role
-#data "aws_iam_instance_profile" "exisitng_profile" {
-# name = var.iam_instance_profile_name
-#}
-
 
 #Module for ASG"
 module "autoscaling_group" {
