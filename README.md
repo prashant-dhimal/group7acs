@@ -19,6 +19,34 @@ We can use E2 Instances(Linux or Ubuntu) or Use of CLoud9 for the project. I wou
 #for prod bucket create network and webserver bucket inside group7acs-prod folder
 #group7acsstaticwebsite bucket is used to fetch the images on the website, so for dev upload any image with the name dev or any other naming conventions, if used any name instead of dev, change the name of image name under aws_launch_configuration module, install_httpd_webserver.sh.tpl. Similarly for Prod for Staging you can use same image or use different image and as mentioned above changing of image name is necessary,if you are planning to use the different image. 
 
+If using the Learner Lab, you can attach IAM tole EMR_EC2_Deafult_Role, to the instances this role allows many actions to be perfomed, among them the access to S3 bucket is also given, which will allow us to fetch the images from s3 bucket for website.
+
+If using Personal or Organization AWS account  you need to create a IAM Role for Ec2 Instance to access the bucket and attach the role to the instance
+
+
+Creation of Bucket Policy and Assiging the Permission to GetObject from the bucket
+
+```
+{
+    "Statement": [
+        {
+            "Action": [
+                 "s3:GetObject",
+                 "s3:ListBucket",
+           
+            ],
+            "Effect": "Allow",
+            "Resource": [
+                "arn:aws:s3:::group7acsstaticwebsite/*"
+            ],
+            "Sid": "VisualEditor0"
+        }
+    ],
+    "Version": "2012-10-17"
+}
+
+\\\\
+
 
 **Note: Changing the image name inside the code is only possible after you have cloned codes the github repository.**
 
