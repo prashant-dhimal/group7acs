@@ -45,7 +45,7 @@ Creation of Bucket Policy and Assiging the Permission to GetObject from the buck
     "Version": "2012-10-17"
 }
 
-\\\\
+```
 
 
 **Note: Changing the image name inside the code is only possible after you have cloned codes the github repository.**
