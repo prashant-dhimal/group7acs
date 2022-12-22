@@ -31,10 +31,11 @@ We can use E2 Instances(Linux or Ubuntu) or Use of CLoud9 for the project. I wou
 ## The Prequisites are over, we are almost ready with the the deployment.
 #For environment Dev
 #Navigate inside environment folder and go inside dev folder and inside dev folder navigate inside the network folder then on your terminal type the follow command
-If you are faimiliar with Alias, you can create alias of terraform to tf, command is alias tf=terraform
+If you are faimiliar with Alias, you can create alias of terraform to tf, command is alias 
+* tf=terraform
 The direcroty structure is 
-**group7acs/environments/dev/network**
-*Run the following command inside dev
+* **group7acs/environments/dev/network**
+* Run the following command inside dev
 * terraform init
 * terraform fmt
 * terraform validate
@@ -44,7 +45,7 @@ The above command will deply VPC, Subnets both Private and Public, Internet Gate
 
 #After deploying Networking Part, navigate to webserver folder inside dev environment
 the folder structure is 
-**group7acs/environments/de/webserver**
+* **group7acs/environments/de/webserver**
 * Run the following command inside dev
 * terraform init
 * terraform fmt
@@ -64,7 +65,7 @@ After the webserver infrastructure are destroyed, its time to destroy the networ
 navigate inside the network folder inside the environments, rum the following command
 * terraform destroy --auto-approve  
 
-## For other Environments, please repeet the above steps.
+## For other Environments, please repeat the above steps.
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Thank You, Happy Coding!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
