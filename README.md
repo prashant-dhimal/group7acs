@@ -31,7 +31,7 @@ Creation of ssh_keys
 * For this Project we need to create three ssh_keys, namely ssh_key_dev, ssh_key_staging and ssh_key_prod, for your convenience, you can use the webserver folder inside the environment to store the ssh keys.
 *command to create ssh_keys
  ```
- $ ssh-key -t rsa -f ~/.ssh/ssh_key_dev
+ $ ssh-keygen -t rsa -f ~/.ssh/ssh_key_dev
  
  ```
 
