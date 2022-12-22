@@ -26,44 +26,45 @@ We can use E2 Instances(Linux or Ubuntu) or Use of CLoud9 for the project. I wou
 #Creation of ssh_keys
 * For this Project we need to create three ssh_keys, namely ssh_key_dev, ssh_key_staging and ssh_key_prod, for your convenience, you can use the webserver folder inside the environment to store the ssh keys.
 *command to create ssh_keys
- * ssh-key -t rsa -f ~/.ssh/ssh_key_dev
+ $ ssh-key -t rsa -f ~/.ssh/ssh_key_dev
 
 ## The Prequisites are over, we are almost ready with the the deployment.
 #For environment Dev
 #Navigate inside environment folder and go inside dev folder and inside dev folder navigate inside the network folder then on your terminal type the follow command
-If you are faimiliar with Alias, you can create alias of terraform to tf, command is alias 
-* tf=terraform
-The direcroty structure is 
-* **group7acs/environments/dev/network**
-* Run the following command inside dev
-* terraform init
-* terraform fmt
-* terraform validate
-* terraform apply --auto-approve
+If you are faimiliar with Alias, you can create alias of terraform to tf, command is 
+* alias  tf=terraform
+* The direcroty structure is 
+$ **group7acs/environments/dev/network**
+*Run the following command inside dev
+$ terraform init
+$ terraform fmt
+$ terraform validate
+$ terraform apply --auto-approve
 
 The above command will deply VPC, Subnets both Private and Public, Internet Gateway, Elastic IP needed for natgateway, Route Tables and print the output of vpc id and both private and public subnets ids. All of these data are saved inside the group7acs-dev bucket under, group7acs-dev/group7-acs/dev/network/terraform.tfstate
 
 #After deploying Networking Part, navigate to webserver folder inside dev environment
 the folder structure is 
-* **group7acs/environments/de/webserver**
+$ **group7acs/environments/de/webserver**
 * Run the following command inside dev
-* terraform init
-* terraform fmt
-* terraform validate
-* terraform apply --auto-approve
+$ terraform init
+$ terraform fmt
+$ terraform validate
+$ terraform apply --auto-approve
 
 
 The above command will create the Bastion Host, Launch Configuration, AutoScaling, Ec2 Instances, by using the launch configuration, Target Group, Load Balancer and the ALB DNS Name is printed as output on the screen, we need to copy the ALB-DNS name and paste on Web Browser.
 
 #After Deploying the terraform its time to destroy the infrastructure.
+
 #Inside the webserver folder of dev environment, run the command
-* terraform destroy --auto-approve
+$ terraform destroy --auto-approve
 
 
 
 After the webserver infrastructure are destroyed, its time to destroy the network infrastructure.
 navigate inside the network folder inside the environments, rum the following command
-* terraform destroy --auto-approve  
+$ terraform destroy --auto-approve  
 
 ## For other Environments, please repeat the above steps.
 
