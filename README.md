@@ -37,7 +37,8 @@ Creation of ssh_keys
 
 ## The Prequisites are over, we are almost ready with the the deployment.
 **For environment Dev**
-#Navigate inside environment folder and go inside dev folder and inside dev folder navigate inside the network folder then on your terminal type the follow command
+
+Navigate inside environment folder and go inside dev folder and inside dev folder navigate inside the network folder then on your terminal type the follow command
 If you are faimiliar with Alias, you can create alias of terraform to tf, command is 
 ```
 alias  tf=terraform
