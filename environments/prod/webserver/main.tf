@@ -3,7 +3,7 @@
 data "terraform_remote_state" "network" { // This is to use Outputs from Remote State
   backend = "s3"
   config = {
-    bucket = "group7acs-prod"                           // Bucket from where to GET Terraform State
+    bucket = "group7acs-prod2"                           // Bucket from where to GET Terraform State
     key    = "network/terraform.tfstate" // Object name in the bucket to GET Terraform State
     region = "us-east-1"                               // Region where bucket created
   }
@@ -20,7 +20,7 @@ locals {
   default_tags       = merge(module.global_variable.default_tags, { "env" = var.env })
   prefix             = module.global_variable.prefix
   name_prefix        = "${local.prefix}-${var.env}"
-  keyName            = "sshkey_${var.env}"
+  keyName            = "ssh_key_${var.env}"
   vpc_id             = data.terraform_remote_state.network.outputs.vpc_id
   public_subnet_ids  = data.terraform_remote_state.network.outputs.public_subnet_ids
   private_subnet_ids = data.terraform_remote_state.network.outputs.private_subnet_ids

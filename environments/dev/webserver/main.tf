@@ -19,7 +19,7 @@ locals {
   default_tags       = merge(module.global_variable.default_tags, { "env" = var.env })
   prefix             = module.global_variable.prefix
   name_prefix        = "${local.prefix}-${var.env}"
-  keyName            = "sshkey_${var.env}"
+  keyName            = "ssh_key_${var.env}"
   vpc_id             = data.terraform_remote_state.network.outputs.vpc_id
   public_subnet_ids  = data.terraform_remote_state.network.outputs.public_subnet_ids
   private_subnet_ids = data.terraform_remote_state.network.outputs.private_subnet_ids
