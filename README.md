@@ -9,8 +9,8 @@ Project is based on Implelentation of two-tier web application, from Terraform, 
 We can use E2 Instances(Linux or Ubuntu) or Use of CLoud9 for the project. I would recommend use of cloud9,as it includes all the tools used for this project such as terraform and github.
 
 **Creation of four S3 Bucket on AWS Account, bucket names must be unique**
-group7acs-dev
-group7acs-staging
+* group7acs-dev
+* group7acs-staging
 grou7acs-prod
 group7acsstaticwebsite
 
