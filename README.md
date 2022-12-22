@@ -18,14 +18,16 @@ We can use E2 Instances(Linux or Ubuntu) or Use of CLoud9 for the project. I wou
 #for staging bucket create network and webserver bucket inside group7acs-staging folder.
 #for prod bucket create network and webserver bucket inside group7acs-prod folder
 #group7acsstaticwebsite bucket is used to fetch the images on the website, so for dev upload any image with the name dev or any other naming conventions, if used any name instead of dev, change the name of image name under aws_launch_configuration module, install_httpd_webserver.sh.tpl. Similarly for Prod for Staging you can use same image or use different image and as mentioned above changing of image name is necessary,if you are planning to use the different image. 
-## Note: Changing the image name inside the code is only possible after you have cloned codes the github repository.
 
-#After completion of above steps, its time for the clonning part, use the below command to clone repo.
+
+**Note: Changing the image name inside the code is only possible after you have cloned codes the github repository.**
+
+After completion of above steps, its time for the clonning part, use the below command to clone repo.
 ```
 $ git clone https://github.com/prashant-dhimal/group7acs.git
 
 ```
-#Creation of ssh_keys
+Creation of ssh_keys
 * For this Project we need to create three ssh_keys, namely ssh_key_dev, ssh_key_staging and ssh_key_prod, for your convenience, you can use the webserver folder inside the environment to store the ssh keys.
 *command to create ssh_keys
  ```
@@ -34,7 +36,7 @@ $ git clone https://github.com/prashant-dhimal/group7acs.git
  ```
 
 ## The Prequisites are over, we are almost ready with the the deployment.
-#For environment Dev
+**For environment Dev**
 #Navigate inside environment folder and go inside dev folder and inside dev folder navigate inside the network folder then on your terminal type the follow command
 If you are faimiliar with Alias, you can create alias of terraform to tf, command is 
 ```
@@ -56,8 +58,9 @@ The above command will deply VPC, Subnets both Private and Public, Internet Gate
 #After deploying Networking Part, navigate to webserver folder inside dev environment
 the folder structure is 
 * **group7acs/environments/de/webserver**
-```
 * Run the following command inside dev
+```
+
 $ terraform init
 $ terraform fmt
 $ terraform validate
