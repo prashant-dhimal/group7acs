@@ -1,14 +1,14 @@
 # group7acs
-# Hello Professor Welcome to ACSFINAL Project. 
+#Hello Professor Welcome to ACSFINAL Project. 
 # This Project is based on Implementation of Two-Tiered Web Application with the help of Terraform Automation
 # Short Description of Project
 Project is based on Implelentation of two-tier web application, from Terraform, which is sclabale, and highly available, webservers are expanded on three availability zone, on same region, and has feature of both scale out and scale in, in order to evenly maintain the flow of traffic, we have introduced Application Load Balancer as well. All the Webserver are on private subnets, which isolate them from the public network, and we have implemented natgateway for private subnets, which will ensure that the web instances on private subnets can reach out to internet for various updates and downloading of various required packages. Bastion Host is also introduced, which allows us to connect(SSH) the EC2 instances on private subnets for various troubleshoot the EC2 instances. We have introduces security group on three levels, one on ALB, next one for Bastion Host and next one for EC2 Instances. For Two-Tier Webapplication, we used S3 Bucket to store the remote state imformation, which can be used for the implenentation of webserver. We have used auto launch configuration which can be user for scaling out .There are three environment mainly dev, staging and prod. We have used tflint for the scanning of terraform code, which will check for the integrity of code. We used terraform modules, for grouping the resources together and reusing the code again. 
 
 # Prerequisite of Starting the Project on Terraform
-##Setting up Environment
+#Setting up Environment
 We can use E2 Instances(Linux or Ubuntu) or Use of CLoud9 for the project. I would recommend use of cloud9,as it includes all the tools used for this project such as terraform and github.
 
-##Creation of four S3 Bucket on AWS Account, bucket names must be unique
+#Creation of four S3 Bucket on AWS Account, bucket names must be unique
 group7acs-dev
 group7acs-staging
 grou7acs-prod
@@ -59,7 +59,7 @@ After the webserver infrastructure are destroyed, its time to destroy the networ
 navigate inside the network folder inside the environments, rum the following command
 terraform destroy --auto-approve  
 
-## For other Environments, please repaet the above steps.
+## For other Environments, please repeet the above steps.
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Thank You, Happy Coding!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
