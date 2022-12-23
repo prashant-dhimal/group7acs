@@ -19,9 +19,12 @@ We can use E2 Instances(Linux or Ubuntu) or Use of CLoud9 for the project. I wou
 #To use s3 bucket as the backend create folder into each of the bucket, as for my terraform module for dev environment, create a folder names as,  group7acs-dev and inside group7acs-dev folder create network and webserver folder.
 #for staging bucket create network and webserver bucket inside group7acs-staging folder.
 #for prod bucket create network and webserver bucket inside group7acs-prod folder
-#group7acsstaticwebsite bucket is used to fetch the images on the website, so for dev upload any image with the name dev or any other naming conventions, if used any name instead of dev, change the name of image name under aws_launch_configuration module, install_httpd_webserver.sh.tpl. Similarly for Prod for Staging you can use same image or use different image and as mentioned above changing of image name is necessary,if you are planning to use the different image. 
 
-If using the Learner Lab, you can attach IAM tole EMR_EC2_Deafult_Role, to the instances this role allows many actions to be perfomed, among them the access to S3 bucket is also given, which will allow us to fetch the images from s3 bucket for website.
+
+group7acsstaticwebsite bucket is used to fetch the images on the website, so for dev upload any image with the name dev or any other naming conventions, if used any name instead of dev, change the name of image name under aws_launch_configuration module, install_httpd_webserver.sh.tpl. Similarly for Prod for Staging you can use same image or use different image and as mentioned above changing of image name is necessary,if you are planning to use the different image. 
+
+
+If using the Learner Lab, you can attach IAM role EMR_EC2_Deafult_Role, to the instances this role allows many actions to be perfomed, among them the access to S3 bucket is also given, which will allow us to fetch the images from s3 bucket for website.
 
 If using Personal or Organization AWS account  you need to create a IAM Role for Ec2 Instance to access the bucket and attach the role to the instance
 
