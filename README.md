@@ -79,8 +79,10 @@ alias  tf=terraform
 
 ```
 * The direcroty structure is 
-$ **group7acs/environments/dev/network**
-* Run the following command inside dev
+* $ **group7acs/environments/dev/network**
+
+
+Run the following command inside dev
 ```
 $ terraform init
 $ terraform fmt
@@ -92,8 +94,10 @@ The above command will deply VPC, Subnets both Private and Public, Internet Gate
 
 #After deploying Networking Part, navigate to webserver folder inside dev environment
 the folder structure is 
-* **group7acs/environments/de/webserver**
-* Run the following command inside dev
+* $**group7acs/environments/dev/webserver**
+
+
+Run the following command inside dev
 ```
 
 $ terraform init
