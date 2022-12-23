@@ -12,7 +12,9 @@ We can use E2 Instances(Linux or Ubuntu) or Use of CLoud9 for the project. I wou
 * group7acs-dev
 * group7acs-staging
 * grou7acs-prod
-* group7acsstaticwebsite
+* group7acsstaticwebsite-dev
+* group7acsstaticwebsite-staging
+* group7acsstaticwebsite-prod
 
 #To use s3 bucket as the backend create folder into each of the bucket, as for my terraform module for dev environment, create a folder names as,  group7acs-dev and inside group7acs-dev folder create network and webserver folder.
 #for staging bucket create network and webserver bucket inside group7acs-staging folder.
